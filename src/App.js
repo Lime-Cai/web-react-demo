@@ -1,4 +1,7 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
+
+
 import logo from './assets/logo.svg';
 import './assets/App.css';
 import Input from './components/Input';
@@ -9,6 +12,13 @@ function App() {
     const onChangeHandler = (e) => {
         setText(e.target.value);
     }
+    useEffect(() => {
+        (async ()=>{
+            const result = await axios.get('https://randomuser.me/api/');
+            axios.get('https://randomuser.me/api/');
+            console.log(result)
+        })();
+    }, []);
 
     return (
         <div className="App">
