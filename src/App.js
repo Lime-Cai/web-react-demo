@@ -37,6 +37,7 @@ function App() {
                     Learn React
                 </a>
                 {text}
+                <button type="button" className="btn btn-primary">Primary</button>
                 <Input
                     id="sampleText"
                     text="這是個Inputr"
