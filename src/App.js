@@ -1,4 +1,4 @@
-import './assets/all.scss'
+import './assets/scss/all.scss'
 
 import Navbar from './components/Navbar'
 import Product from "./components/Product";
