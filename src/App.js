@@ -4,10 +4,20 @@ import Navbar from './components/Navbar'
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 
-function App() {
+import {CartContext} from "./store";
+import {useReducer} from "react";
 
+function App() {
+    const cartReducer = useReducer((prevState, action) => {
+        switch (action) {
+            default:
+                return prevState
+        }
+    }, {
+        carList: [],
+    })
     return (
-        <div className="App">
+        <CartContext.Provider value={cartReducer}>
             <Navbar/>
             <div className="container mt-4">
                 {/* 外層格線 */}
@@ -22,7 +32,7 @@ function App() {
                     </div>
                 </div>
             </div>
-        </div>
+        </CartContext.Provider>
     );
 }
 
