@@ -9,7 +9,13 @@ import {useReducer} from "react";
 
 function App() {
     const cartReducer = useReducer((prevState, action) => {
-        switch (action) {
+        const carList = [...prevState.carList];
+        switch (action.type) {
+            case 'ADD_TO_CART':
+                carList.push(action.payload);
+                return {
+                    ...prevState,carList
+                };
             default:
                 return prevState
         }

@@ -29,7 +29,7 @@ export default function Product() {
                                         type:'ADD_TO_CART',
                                         payload:{
                                             ...product,
-                                            qty:1
+                                            quantity:1
                                         }
                                     })
                                 }}>
