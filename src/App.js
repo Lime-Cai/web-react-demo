@@ -29,6 +29,11 @@ function App() {
                 return {
                     ...prevState, carList
                 }
+            case 'REMOVE_CART_ITEM':
+                carList.splice(index, 1);
+                return {
+                    ...prevState, carList
+                }
             default:
                 return prevState
         }
