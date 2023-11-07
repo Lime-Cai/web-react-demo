@@ -22,17 +22,17 @@ function App() {
                     carList[index].quantity += action.payload.quantity;
                 }
                 return {
-                    ...prevState, carList
+                    ...prevState, carList, total:calculateTotalPrice(carList)
                 };
             case 'CHANGE_CART_QUANTITY':
                 carList[index].quantity = action.payload.quantity;
                 return {
-                    ...prevState, carList
+                    ...prevState, carList, total:calculateTotalPrice(carList)
                 }
             case 'REMOVE_CART_ITEM':
                 carList.splice(index, 1);
                 return {
-                    ...prevState, carList
+                    ...prevState, carList, total:calculateTotalPrice(carList)
                 }
             default:
                 return prevState
@@ -40,6 +40,16 @@ function App() {
     }, {
         carList: [],
     })
+
+    function calculateTotalPrice(carList){
+        return(
+            carList.map((item) => {
+                return item.quantity * item.price
+            }).reduce((a,b)=>{
+                return a + b;
+            }, 0)
+        )
+    }
     return (
         <CartContext.Provider value={cartReducer}>
             <Navbar/>
